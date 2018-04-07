@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://levels/abstract_level.gd" type="Script" id=1]
+[ext_resource path="res://objects/road/road.tscn" type="PackedScene" id=2]
+
+[node name="level" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+road_length = 100000
+
+[node name="background" type="Node" parent="." index="0"]
+
+[node name="road" parent="background" index="0" instance=ExtResource( 2 )]
+
+[node name="foreground" type="Node" parent="." index="1"]
+
+
