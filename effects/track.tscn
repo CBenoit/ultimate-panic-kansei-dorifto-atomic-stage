@@ -2,72 +2,19 @@
 
 [ext_resource path="res://effects/abstract_effect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://effects/track.gd" type="Script" id=2]
-
-[sub_resource type="ParticlesMaterial" id=1]
-
-render_priority = 0
-trail_divisor = 1
-emission_shape = 1
-emission_sphere_radius = 15.0
-flag_align_y = false
-flag_rotate_y = false
-flag_disable_z = true
-spread = 180.0
-flatness = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 0.0
-initial_velocity_random = 0.0
-angular_velocity = 0.0
-angular_velocity_random = 0.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-linear_accel = 0.0
-linear_accel_random = 0.0
-radial_accel = 0.0
-radial_accel_random = 0.0
-tangential_accel = 0.0
-tangential_accel_random = 0.0
-damping = 0.0
-damping_random = 0.0
-angle = 0.0
-angle_random = 0.0
-scale = 2.0
-scale_random = 0.0
-color = Color( 0.144531, 0.144531, 0.144531, 1 )
-hue_variation = 0.0
-hue_variation_random = 0.0
-anim_speed = 0.0
-anim_speed_random = 0.0
-anim_offset = 0.0
-anim_offset_random = 0.0
-anim_loop = false
-_sections_unfolded = [ "Color", "Emission Shape", "Flags", "Initial Velocity", "Linear Accel", "Scale", "Spread", "Trail" ]
+[ext_resource path="res://effects/blackdot.png" type="Texture" id=3]
 
 [node name="effect" instance=ExtResource( 1 )]
 
 rotation = -0.00983765
 script = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="track" type="Particles2D" parent="." index="0"]
+[node name="blackdot" type="Sprite" parent="." index="1"]
 
-emitting = false
-amount = 100
-lifetime = 1.0
-one_shot = true
-preprocess = 0.0
-speed_scale = 1.0
-explosiveness = 1.0
-randomness = 0.0
-fixed_fps = 0
-fract_delta = true
-visibility_rect = Rect2( -100, -100, 200, 200 )
-local_coords = true
-draw_order = 0
-process_material = SubResource( 1 )
-texture = null
-normal_map = null
-h_frames = 1
-v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
+position = Vector2( -50, 0 )
+scale = Vector2( 10, 3 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
 
 

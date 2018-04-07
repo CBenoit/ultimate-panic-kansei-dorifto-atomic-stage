@@ -98,5 +98,6 @@ func _drift_at(wheel_pos):
 
 	var track = track_scn.instance()
 	track.set_position(wheel_pos.to_global(Vector2(0, 0)))
-	get_parent().get_parent().get_node("layer_2").add_child(track)
+	track.set_rotation(get_rotation())
+	get_parent().get_parent().get_node("layer_1").add_child(track)
 	track.activate()
