@@ -1,15 +1,19 @@
 extends Node2D
 
-const road_scn = preload("res://objects/road/roadsection.tscn")
+const ROADSECTION_SCN = preload("res://objects/road/roadsection.tscn")
+const GENERATION_ADVANCE = 2000
 
-export(int) var road_length = 100000
+var generated_until = 0
+var level = 1
 
-func _ready():
-	var step = $background/road/sprite.get_texture().get_height()
-	for i in range(1, road_length / step):
-		add_road_at(0, -i * step)
+func _process(delta):
+	var step = $background/roadsection/road/sprite.get_texture().get_height()
+	while $foreground/kuruma.position.y - GENERATION_ADVANCE < generated_until:
+		add_roadsection_at(0, generated_until - step)
+		generated_until -= step
 
-func add_road_at(x, y):
-	var inst = road_scn.instance()
+func add_roadsection_at(x, y):
+	var inst = ROADSECTION_SCN.instance()
 	inst.set_position(Vector2(x, y))
+	inst.generate_props_at($foreground)
 	add_child(inst)

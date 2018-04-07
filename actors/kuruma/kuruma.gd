@@ -29,10 +29,10 @@ func _physics_process(delta):
 	
 	if position.x > MAX_X:
 		position.x = MAX_X
-		set_rotation(Vector2(cos(rotation), sin(rotation)).reflect(Vector2(0, 1)).angle())
+		set_rotation(-PI / 2)
 	elif position.x < MIN_X:
 		position.x = MIN_X
-		set_rotation(Vector2(cos(rotation), sin(rotation)).reflect(Vector2(0, 1)).angle())
+		set_rotation(-PI / 2)
 
 	set_rotation(clamp(get_rotation(), MIN_ANGLE, MAX_ANGLE))
 	speed = clamp(speed, MIN_SPEED, MAX_SPEED)
@@ -81,19 +81,22 @@ func _drift_state():
 		$sprite.rotation = 0
 
 func _kansei_drift_state():
-	pass
+	_drift_at($sprite/wheel_back_left)
+	_drift_at($sprite/wheel_back_right)
+	_drift_at($sprite/wheel_front_left)
+	_drift_at($sprite/wheel_front_right)
 
 func _kansei_drift_finished(dummy):
 	state = normal_state_func
 	$anim.disconnect("animation_finished", self, "_kansei_drift_finished")
 
 func _drift_at(wheel_pos):
-	#var smoke = smoke_scn.instance()
-	#smoke.set_position(wheel_pos.to_global(wheel_pos.get_position()))
-	#get_node("../..").add_child(smoke)
-	#smoke.activate()
+	var smoke = smoke_scn.instance()
+	smoke.set_position(wheel_pos.to_global(wheel_pos.get_position()))
+	get_parent().add_child(smoke)
+	smoke.activate()
 
 	var track = track_scn.instance()
 	track.set_position(wheel_pos.to_global(wheel_pos.get_position()))
-	get_node("../..").add_child(track)
+	get_parent().add_child(track)
 	track.activate()
