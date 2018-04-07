@@ -43,7 +43,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Flags", "Initial Velocity", "Linear Accel", "Scale", "Spread", "Trail" ]
 
-[node name="effect" index="0" instance=ExtResource( 1 )]
+[node name="effect" instance=ExtResource( 1 )]
 
 rotation = -0.00983765
 script = ExtResource( 2 )
