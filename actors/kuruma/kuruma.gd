@@ -92,11 +92,11 @@ func _kansei_drift_finished(dummy):
 
 func _drift_at(wheel_pos):
 	var smoke = smoke_scn.instance()
-	smoke.set_position(wheel_pos.to_global(wheel_pos.get_position()))
-	get_parent().add_child(smoke)
+	smoke.set_position(wheel_pos.to_global(Vector2(0, 0)))
+	get_parent().get_parent().get_node("layer_2").add_child(smoke)
 	smoke.activate()
 
 	var track = track_scn.instance()
-	track.set_position(wheel_pos.to_global(wheel_pos.get_position()))
-	get_parent().add_child(track)
+	track.set_position(wheel_pos.to_global(Vector2(0, 0)))
+	get_parent().get_parent().get_node("layer_2").add_child(track)
 	track.activate()
