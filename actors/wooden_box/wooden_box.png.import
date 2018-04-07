@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/woodenbox.png-de92cab3f0fc290fd83dad63ccc08b16.stex"
+path="res://.import/wooden_box.png-68d1d8e4a0dd18ed6713e6dcd0df1faa.stex"
 
 [deps]
 
-source_file="res://actors/woodenbox/woodenbox.png"
+source_file="res://actors/wooden_box/wooden_box.png"
 source_md5="e4664008cd3d5577f744f6d5f8ca37ef"
 
-dest_files=[ "res://.import/woodenbox.png-de92cab3f0fc290fd83dad63ccc08b16.stex" ]
+dest_files=[ "res://.import/wooden_box.png-68d1d8e4a0dd18ed6713e6dcd0df1faa.stex" ]
 dest_md5="166d795c9a7bd04e96b94fe0f0bb2807"
 
 [params]

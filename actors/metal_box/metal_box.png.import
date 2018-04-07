@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/metalbox.png-0ecd9afe09d0e19886790d49482839c2.stex"
+path="res://.import/metal_box.png-1f53d324fd3b1fa32adc83e7ae231447.stex"
 
 [deps]
 
-source_file="res://actors/metal_box/metalbox.png"
+source_file="res://actors/metal_box/metal_box.png"
 source_md5="ba1f2fee75e1007102e5a6f538cda4a5"
 
-dest_files=[ "res://.import/metalbox.png-0ecd9afe09d0e19886790d49482839c2.stex" ]
+dest_files=[ "res://.import/metal_box.png-1f53d324fd3b1fa32adc83e7ae231447.stex" ]
 dest_md5="d52ba083b3c924171a117ab0a44cdef4"
 
 [params]
