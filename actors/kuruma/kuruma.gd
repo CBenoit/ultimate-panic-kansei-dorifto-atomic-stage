@@ -38,7 +38,11 @@ func _physics_process(delta):
 	speed = clamp(speed, MIN_SPEED, MAX_SPEED)
 
 	var movement = Vector2(cos(rotation), sin(rotation)) * speed
-	move_and_collide(movement)
+	var info = move_and_collide(movement)
+	if info != null and "destructible" in info.collider.get_groups():
+		info.collider.destroy()
+		if state != kansei_drift_state_func:
+			speed -= 20
 
 func _normal_state():
 	if Input.is_action_pressed("ui_left"):
