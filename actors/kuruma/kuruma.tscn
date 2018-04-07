@@ -27,6 +27,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0.0, -35.0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("shape:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -34.401 ]
+}
 
 [sub_resource type="Animation" id=3]
 
@@ -46,10 +58,22 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0.0, 35.0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("shape:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 35.9203 ]
+}
 
 [sub_resource type="Animation" id=4]
 
-length = 1.7
+length = 2.0
 loop = false
 step = 0.1
 tracks/0/type = "value"
@@ -59,13 +83,49 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.7, 1.4, 1.7 ),
+"times": PoolRealArray( 0, 0.3, 0.7, 1.4, 1.7, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 20.0, -75.0, -70.0, 20.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1.7, 2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 20.0, -75.0, -70.0, 0.0 ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, 100 ), Vector2( 0, 150 ), Vector2( 0, -75 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("shape:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1.4, 1.7, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 17.5674, -75.0621, -70.5282, 19.8025, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("shape:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1.7, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1.89413, 102.161 ), Vector2( 1.89413, 148.16 ), Vector2( 0.894135, -72.8392 ), Vector2( 0, 0 ) ]
 }
 
-[node name="kuruma" type="Node" index="0"]
+[node name="kuruma" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -78,18 +138,30 @@ collision/safe_margin = 0.08
 script = ExtResource( 2 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
 
-[node name="shape" type="CollisionShape2D" parent="body" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="sprite" type="Sprite" parent="body" index="1"]
+[node name="sprite" type="Sprite" parent="body" index="0"]
 
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="camera" type="Camera2D" parent="body" index="2"]
+[node name="wheel_front_right" type="Position2D" parent="body/sprite" index="0"]
 
-position = Vector2( 800, 0 )
+position = Vector2( 108.271, 57.6565 )
+
+[node name="wheel_front_left" type="Position2D" parent="body/sprite" index="1"]
+
+position = Vector2( 107.391, -60.7374 )
+
+[node name="wheel_back_right" type="Position2D" parent="body/sprite" index="2"]
+
+position = Vector2( -85.3845, 59.8572 )
+
+[node name="wheel_back_left" type="Position2D" parent="body/sprite" index="3"]
+
+position = Vector2( -88.0252, -61.1775 )
+
+[node name="camera" type="Camera2D" parent="body" index="1"]
+
+position = Vector2( 900, 0 )
 rotation = 1.5708
 anchor_mode = 1
 rotating = false
@@ -114,6 +186,12 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Drag Margin", "Editor", "Offset", "Smoothing", "Transform" ]
+
+[node name="shape" type="CollisionShape2D" parent="body" index="2"]
+
+scale = Vector2( 16.572, 7.0486 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="anim" type="AnimationPlayer" parent="body" index="3"]
 

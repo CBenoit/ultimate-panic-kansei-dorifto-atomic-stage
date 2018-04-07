@@ -1,6 +1,6 @@
 extends Node2D
 
-var road_scn = preload("res://objects/road/road.tscn")
+const road_scn = preload("res://objects/road/road.tscn")
 
 export(int) var road_length = 100000
 
