@@ -15,7 +15,7 @@ length = 0.2
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../sprite:rotation_degrees")
+tracks/0/path = NodePath("sprite:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -27,7 +27,7 @@ tracks/0/keys = {
 "values": [ 0.0, -35.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../shape:rotation_degrees")
+tracks/1/path = NodePath("shape:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -46,7 +46,7 @@ length = 0.2
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../sprite:rotation_degrees")
+tracks/0/path = NodePath("sprite:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -58,7 +58,7 @@ tracks/0/keys = {
 "values": [ 0.0, 35.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../shape:rotation_degrees")
+tracks/1/path = NodePath("shape:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -76,7 +76,7 @@ length = 2.0
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../sprite:rotation_degrees")
+tracks/0/path = NodePath("sprite:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -88,7 +88,7 @@ tracks/0/keys = {
 "values": [ 0.0, 20.0, -75.0, -70.0, 20.0, 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../sprite:position")
+tracks/1/path = NodePath("sprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -100,7 +100,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 100 ), Vector2( 0, 150 ), Vector2( 0, -75 ), Vector2( 0, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../shape:rotation_degrees")
+tracks/2/path = NodePath("shape:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -112,7 +112,7 @@ tracks/2/keys = {
 "values": [ 0.0, 17.5674, -75.0621, -70.5282, 19.8025, 0.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("../shape:position")
+tracks/3/path = NodePath("shape:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
