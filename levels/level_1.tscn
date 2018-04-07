@@ -5,7 +5,7 @@
 [ext_resource path="res://actors/kuruma/kuruma.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actors/wooden_box/wooden_box.tscn" type="PackedScene" id=4]
 
-[node name="level_1" index="0" instance=ExtResource( 1 )]
+[node name="level_1" instance=ExtResource( 1 )]
 
 [node name="grass" parent="background/road" index="1" instance=ExtResource( 2 )]
 
