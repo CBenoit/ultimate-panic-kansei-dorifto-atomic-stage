@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://objects/grass/grass.png" type="Texture" id=1]
+
+[node name="grass" type="Sprite" index="0"]
+
+scale = Vector2( 1, 1.77778 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+

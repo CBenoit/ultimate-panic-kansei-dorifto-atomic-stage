@@ -1,6 +1,6 @@
 extends Node2D
 
-const road_scn = preload("res://objects/road/road.tscn")
+const road_scn = preload("res://objects/road/roadsection.tscn")
 
 export(int) var road_length = 100000
 
@@ -11,6 +11,5 @@ func _ready():
 
 func add_road_at(x, y):
 	var inst = road_scn.instance()
-	inst.rotation = -PI / 2
 	inst.set_position(Vector2(x, y))
 	add_child(inst)
