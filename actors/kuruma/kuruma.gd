@@ -58,7 +58,7 @@ func _normal_state():
 		else:
 			rotate(ROTATION_SPEED / speed)
 
-	if Input.is_action_pressed("ui_accept"):
+	if Input.is_action_pressed("kansei_drift"):
 		state = kansei_drift_state_func
 		speed += MAX_SPEED - SPEED_GOAL
 		$anim.play("kansei_dorifto")
