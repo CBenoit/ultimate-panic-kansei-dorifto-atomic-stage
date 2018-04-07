@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 
 resource_name = "drift_left"
 length = 0.2
@@ -47,9 +47,8 @@ tracks/0/keys = {
 "values": [ 0.0, 35.0 ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=4]
 
-resource_name = "kansei_dorifto"
 length = 1.7
 loop = false
 step = 0.1
@@ -123,9 +122,9 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/drift_left = SubResource( 4 )
+anims/drift_left = SubResource( 2 )
 anims/drift_right = SubResource( 3 )
-anims/kansei_dorifto = SubResource( 2 )
+anims/kansei_dorifto = SubResource( 4 )
 blend_times = [  ]
 
 
