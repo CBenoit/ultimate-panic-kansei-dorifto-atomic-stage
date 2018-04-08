@@ -124,3 +124,5 @@ func _on_doriftocooldown_timeout():
 	pass # replace with function body
 func destroy ():
 	print ("You loose")
+	print ("Your score is :")
+	print(position.y*-10)

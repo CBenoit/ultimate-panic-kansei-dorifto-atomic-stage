@@ -1,15 +1,25 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://UI/ProgressBar/progressbar.gd" type="Script" id=1]
 [ext_resource path="res://UI/ProgressBar/under.png" type="Texture" id=2]
 [ext_resource path="res://UI/ProgressBar/over.png" type="Texture" id=3]
 [ext_resource path="res://UI/ProgressBar/fill.png" type="Texture" id=4]
+[ext_resource path="res://UI/Font/street_cred.tff/street cred.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="Theme" id=1]
 
 
 [sub_resource type="Theme" id=2]
 
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 100
+use_mipmaps = false
+use_filter = false
+extra_spacing_char = 1
+font_data = ExtResource( 5 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [node name="Control" type="Control" index="0"]
 
@@ -59,5 +69,31 @@ radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 _sections_unfolded = [ "Theme" ]
+
+[node name="labelle" type="Label" parent="." index="1"]
+
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -500.0
+margin_top = -1080.0
+margin_right = -10.0
+margin_bottom = -900.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 3 )
+text = "SCORE"
+align = 2
+valign = 1
+uppercase = true
+percent_visible = -0.142857
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
 
