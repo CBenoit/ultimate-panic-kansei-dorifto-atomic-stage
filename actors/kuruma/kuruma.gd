@@ -122,3 +122,5 @@ func _on_doriftocooldown_timeout():
 	$doriftocooldown.stop()
 	KANSEIDORIFTO = true
 	pass # replace with function body
+func destroy ():
+	print ("You loose")

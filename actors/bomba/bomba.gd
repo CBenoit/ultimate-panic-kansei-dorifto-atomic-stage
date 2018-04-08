@@ -11,18 +11,11 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	
 	var dist = kuruma.to_global(Vector2(0, 0)).y - to_global(Vector2(0, 0)).y
-
-	
 	var movement
-		
 	if (dist > MAX_DIST):
-		print(dist)
-		print("oula")
 		movement = Vector2(0,-1) * SPEED_NORMAL
 	else:
-		print("trkl")
 		movement = Vector2(0,dist - MAX_DIST)*1.5
 		
 	
