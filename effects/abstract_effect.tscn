@@ -2,7 +2,7 @@
 
 [ext_resource path="res://effects/abstract_effect.gd" type="Script" id=1]
 
-[node name="effect" type="Node2D" index="0"]
+[node name="sparcle" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 

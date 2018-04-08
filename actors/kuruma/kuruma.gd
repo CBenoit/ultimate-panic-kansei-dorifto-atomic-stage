@@ -3,6 +3,7 @@ extends KinematicBody2D
 # other scenes
 const smoke_scn = preload("res://effects/smoke.tscn")
 const track_scn = preload("res://effects/track.tscn")
+const sparcle_scn = preload("res://effects/sparcle.tscn")
 
 # constants
 const SPEED_GOAL = 25.0
@@ -104,3 +105,10 @@ func _drift_at(wheel_pos):
 	track.set_rotation(get_rotation())
 	get_parent().get_parent().get_node("layer_1").add_child(track)
 	track.activate()
+	
+	var sparcle = sparcle_scn.instance()
+	sparcle.set_position(wheel_pos.to_global(Vector2(0, 0)))
+	sparcle.set_rotation(get_rotation())
+	get_parent().get_parent().get_node("layer_1").add_child(sparcle)
+	sparcle.activate()
+	 
