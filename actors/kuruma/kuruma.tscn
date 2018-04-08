@@ -1,13 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://actors/kuruma/kuruma.gd" type="Script" id=1]
 [ext_resource path="res://actors/kuruma/86.png" type="Texture" id=2]
-[ext_resource path="res://UI/ProgressBar/progressbar.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 100, 50 )
 
 [sub_resource type="Animation" id=2]
 
@@ -156,8 +155,6 @@ position = Vector2( -88.0252, -61.1775 )
 
 [node name="shape" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( -1.12285, 0.702846 )
-scale = Vector2( 13.6256, 5.33287 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -188,12 +185,6 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Drag Margin", "Editor", "Offset", "Smoothing", "Transform" ]
-
-[node name="Control" parent="camera" index="0" instance=ExtResource( 3 )]
-
-margin_left = -950.0
-margin_right = 970.0
-_sections_unfolded = [ "Margin", "Material", "Mouse", "Rect", "Theme", "Visibility" ]
 
 [node name="anim" type="AnimationPlayer" parent="." index="3"]
 

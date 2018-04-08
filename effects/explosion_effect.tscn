@@ -4,18 +4,18 @@
 [ext_resource path="res://effects/explosion.gd" type="Script" id=2]
 [ext_resource path="res://actors/wooden_box/wooden_box.png" type="Texture" id=3]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=1]
 
 offsets = PoolRealArray( 0, 0.295858, 0.91716 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=3]
+[sub_resource type="GradientTexture" id=2]
 
 flags = 4
-gradient = SubResource( 2 )
+gradient = SubResource( 1 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=3]
 
 render_priority = 0
 trail_divisor = 1
@@ -45,7 +45,7 @@ angle = 0.0
 angle_random = 0.5
 scale = 1.0
 scale_random = 0.0
-color_ramp = SubResource( 3 )
+color_ramp = SubResource( 2 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -62,10 +62,10 @@ script = ExtResource( 2 )
 [node name="particles" type="Particles2D" parent="." index="1"]
 
 rotation = -1.5708
-emitting = true
+emitting = false
 amount = 70
 lifetime = 5.0
-one_shot = false
+one_shot = true
 preprocess = 0.0
 speed_scale = 5.0
 explosiveness = 1.0
@@ -75,7 +75,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 1 )
+process_material = SubResource( 3 )
 texture = ExtResource( 3 )
 normal_map = null
 h_frames = 6

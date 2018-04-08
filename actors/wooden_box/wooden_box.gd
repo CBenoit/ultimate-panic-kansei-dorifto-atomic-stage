@@ -1,5 +1,7 @@
 extends KinematicBody2D
+
 const explosion = preload("res://effects/explosion_effect.tscn")
+
 func destroy():
 	var inst = explosion.instance()
 	inst.set_position(get_position())

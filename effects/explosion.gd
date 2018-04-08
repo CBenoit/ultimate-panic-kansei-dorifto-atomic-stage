@@ -5,4 +5,3 @@ func _on_activate():
 
 func set_texture(texture):
 	$particles.set_texture(texture)
-

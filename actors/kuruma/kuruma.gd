@@ -4,6 +4,7 @@ extends KinematicBody2D
 const smoke_scn = preload("res://effects/smoke.tscn")
 const track_scn = preload("res://effects/track.tscn")
 const sparcle_scn = preload("res://effects/sparcle.tscn")
+const explosion = preload("res://effects/explosion_effect.tscn")
 
 # constants
 const SPEED_GOAL = 25.0
@@ -28,8 +29,12 @@ var kansei_drift_state_func = funcref(self, "_kansei_drift_state")
 # properties
 var speed = 10.0
 var state = normal_state_func
+var dead = false
 
 func _physics_process(delta):
+	if dead:
+		return
+	
 	state.call_func()
 	
 	if position.x > MAX_X:
@@ -44,10 +49,14 @@ func _physics_process(delta):
 
 	var movement = Vector2(cos(rotation), sin(rotation)) * speed
 	var info = move_and_collide(movement)
-	if info != null and "destructible" in info.collider.get_groups():
-		info.collider.destroy()
-		if state != kansei_drift_state_func and speed < SPEED_GOAL + SPEED_GOAL_EPSILON:
-			speed -= MALUS_SPEED
+	if info != null:
+		var invincible = state == kansei_drift_state_func or speed > SPEED_GOAL + SPEED_GOAL_EPSILON
+		if "lethal" in info.collider.get_groups() and !invincible:
+			destroy()
+		elif "destructible" in info.collider.get_groups():
+			info.collider.destroy()
+			if !invincible:
+				speed -= MALUS_SPEED
 
 func _normal_state():
 	if Input.is_action_pressed("ui_left"):
@@ -121,8 +130,14 @@ func _drift_at(wheel_pos):
 func _on_doriftocooldown_timeout():
 	$doriftocooldown.stop()
 	KANSEIDORIFTO = true
-	pass # replace with function body
-func destroy ():
-	print ("You loose")
-	print ("Your score is :")
-	print(position.y*-10)
+
+func destroy():
+	if not dead:
+		var inst = explosion.instance()
+		inst.set_position(get_position())
+		inst.set_rotation(get_rotation() + (PI / 2))
+		get_parent().add_child(inst)
+		inst.set_texture($sprite.get_texture())
+		inst.activate()
+		$sprite.queue_free()
+		dead = true
