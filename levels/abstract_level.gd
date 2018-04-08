@@ -1,7 +1,7 @@
 extends Node2D
 
 const ROADSECTION_SCN = preload("res://objects/road/roadsection.tscn")
-const GENERATION_ADVANCE = 2000
+const GENERATION_ADVANCE = 1500
 
 var generated_until = 0
 var level = 1

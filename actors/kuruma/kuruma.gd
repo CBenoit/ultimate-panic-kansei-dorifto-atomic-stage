@@ -11,12 +11,15 @@ const SPEED_GOAL_EPSILON = 0.15
 const MAX_SPEED = 40.0
 const MIN_SPEED = 10.0
 
+const MALUS_SPEED = 20
 const ROTATION_SPEED = 0.8
 const MIN_ANGLE = -PI / 2 - 0.7
 const MAX_ANGLE = -PI / 2 + 0.7
 
 const MAX_X = 540
 const MIN_X = -540
+
+var KANSEIDORIFTO = true
 
 var normal_state_func = funcref(self, "_normal_state")
 var drift_state_func = funcref(self, "_drift_state")
@@ -44,7 +47,7 @@ func _physics_process(delta):
 	if info != null and "destructible" in info.collider.get_groups():
 		info.collider.destroy()
 		if state != kansei_drift_state_func and speed < SPEED_GOAL + SPEED_GOAL_EPSILON:
-			speed -= 20
+			speed -= MALUS_SPEED
 
 func _normal_state():
 	if Input.is_action_pressed("ui_left"):
@@ -60,7 +63,8 @@ func _normal_state():
 		else:
 			rotate(ROTATION_SPEED / speed)
 
-	if Input.is_action_pressed("kansei_drift"):
+	if Input.is_action_pressed("kansei_drift") and KANSEIDORIFTO:
+		KANSEIDORIFTO = false
 		state = kansei_drift_state_func
 		speed += MAX_SPEED - SPEED_GOAL
 		$anim.play("kansei_dorifto")
@@ -91,6 +95,7 @@ func _kansei_drift_state():
 	_drift_at($sprite/wheel_front_right)
 
 func _kansei_drift_finished(dummy):
+	$doriftocooldown.start()
 	state = normal_state_func
 	$anim.disconnect("animation_finished", self, "_kansei_drift_finished")
 
@@ -112,3 +117,8 @@ func _drift_at(wheel_pos):
 	get_parent().get_parent().get_node("layer_1").add_child(sparcle)
 	sparcle.activate()
 	 
+
+func _on_doriftocooldown_timeout():
+	$doriftocooldown.stop()
+	KANSEIDORIFTO = true
+	pass # replace with function body

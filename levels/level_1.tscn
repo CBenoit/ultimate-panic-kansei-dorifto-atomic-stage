@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://levels/abstract_level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/kuruma/kuruma.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/bomba/bomba.tscn" type="PackedScene" id=3]
 
 [node name="level_1" instance=ExtResource( 1 )]
 
@@ -9,5 +10,10 @@
 
 rotation = -1.5708
 _sections_unfolded = [ "Transform" ]
+
+[node name="bombaeffect" parent="layer_4" index="0" instance=ExtResource( 3 )]
+
+position = Vector2( 0, 1000 )
+_sections_unfolded = [ "Collision", "Transform" ]
 
 

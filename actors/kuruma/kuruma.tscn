@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 7.98502, 9.01914 )
+extents = Vector2( 10, 10 )
 
 [sub_resource type="Animation" id=2]
 
@@ -24,7 +24,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, -45.0 ]
+"values": [ 0.0, -35.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("shape:rotation_degrees")
@@ -36,7 +36,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, -45.0 ]
+"values": [ 0.0, -34.401 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -55,7 +55,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, 45.0 ]
+"values": [ 0.0, 35.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("shape:rotation_degrees")
@@ -67,7 +67,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, 45.0 ]
+"values": [ 0.0, 35.9203 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -199,5 +199,14 @@ anims/drift_left = SubResource( 2 )
 anims/drift_right = SubResource( 3 )
 anims/kansei_dorifto = SubResource( 4 )
 blend_times = [  ]
+
+[node name="doriftocooldown" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 10.0
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="doriftocooldown" to="." method="_on_doriftocooldown_timeout"]
 
 
