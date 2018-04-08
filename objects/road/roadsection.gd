@@ -1,11 +1,22 @@
 extends Node2D
 
-const NUM_PROPS = 6
 const PROP_SCN = preload("res://objects/props/prop.tscn")
+const WOODEN_BOX_SCN = preload("res://actors/wooden_box/wooden_box.tscn")
+
+const NUM_PROPS = 6
+const NUM_TRAPS = 1
 
 func generate_props_at(node):
 	_generate_props_in_grass_at($grass, node)
 	_generate_props_in_grass_at($grass2, node)
+
+func generate_traps_at(node):
+	for i in range(0, NUM_TRAPS):
+		var x = $road.position.x + rand_range(-1, 1) * $road/sprite.get_texture().get_height() / 2.5
+		var y = position.y + rand_range(-1, 1) * $road/sprite.get_texture().get_width() / 2
+		var box = WOODEN_BOX_SCN.instance()
+		box.set_position(Vector2(x, y))
+		node.add_child(box)
 
 func _generate_props_in_grass_at(grass, node):
 	for i in range(0, NUM_PROPS):

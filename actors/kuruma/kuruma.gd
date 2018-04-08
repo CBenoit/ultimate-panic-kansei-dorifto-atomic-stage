@@ -6,12 +6,13 @@ const track_scn = preload("res://effects/track.tscn")
 
 # constants
 const SPEED_GOAL = 25.0
-const MAX_SPEED = 45.0
+const SPEED_GOAL_EPSILON = 0.15
+const MAX_SPEED = 40.0
 const MIN_SPEED = 10.0
 
-const ROTATION_SPEED = 0.75
-const MIN_ANGLE = -2 * PI / 3
-const MAX_ANGLE = -1 * PI / 3
+const ROTATION_SPEED = 0.8
+const MIN_ANGLE = -PI / 2 - 0.7
+const MAX_ANGLE = -PI / 2 + 0.7
 
 const MAX_X = 540
 const MIN_X = -540
@@ -41,7 +42,7 @@ func _physics_process(delta):
 	var info = move_and_collide(movement)
 	if info != null and "destructible" in info.collider.get_groups():
 		info.collider.destroy()
-		if state != kansei_drift_state_func:
+		if state != kansei_drift_state_func and speed < SPEED_GOAL + SPEED_GOAL_EPSILON:
 			speed -= 20
 
 func _normal_state():
@@ -64,10 +65,12 @@ func _normal_state():
 		$anim.play("kansei_dorifto")
 		$anim.connect("animation_finished", self, "_kansei_drift_finished")
 
-	if speed < SPEED_GOAL:
+	if speed < SPEED_GOAL - SPEED_GOAL_EPSILON:
 		speed += 0.1
-	elif speed > SPEED_GOAL:
+	elif speed > SPEED_GOAL + SPEED_GOAL_EPSILON:
 		speed -= 0.1
+		_drift_at($sprite/wheel_back_left)
+		_drift_at($sprite/wheel_back_right)
 
 func _drift_state():
 	_drift_at($sprite/wheel_back_left)
